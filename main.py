@@ -42,7 +42,7 @@ while True:
         StatusPacket.Decode()
         # session.add(StatusPacket)
         # session.commit()
-        print(f'StatusPacket {StatusPacket}')
+        # print(f'StatusPacket {StatusPacket}')
         # self.uiStatusMsg.emit(StatusPacket)
 
     elif NewPacket.PacketType == 2:
@@ -70,6 +70,9 @@ while True:
     elif NewPacket.PacketType == 5:
         LoggedPacket = WSJTXClass.WSJTX_Logged(fileContent, NewPacket.index)
         LoggedPacket.Decode()
+        repo_decode = WSJTX_LoggedRepository(session)
+        decode = repo_decode.add(LoggedPacket)
+        session.commit()
         # session.add(LoggedPacket)
         # session.commit()
         # self.uiLoggedMsg.emit(LoggedPacket)

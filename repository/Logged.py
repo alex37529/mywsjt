@@ -15,8 +15,8 @@ class WSJTX_LoggedRepository:
         ]
 
     def add(self, obj):
-        self.session.add(obj)
-        return obj
+        self.session.add(WSJTX_LoggedModel(**obj.dict()))
+        return obj.dict()
 
     def update(self, **kwargs):
         pass

@@ -254,6 +254,20 @@ class WSJTX_Decode(WSJTX_Packet):
         self.LowConfidence = self.getBool()
         self.OffAir = self.getBool()
 
+    def dict(self):
+        return {
+            # "id": self.id,
+            "New": self.New,
+            "Time": self.Time,
+            "snr": self.snr,
+            "DeltaTime": self.DeltaTime,
+            "DeltaFrequency": self.DeltaFrequency,
+            "Mode": self.Mode,
+            "Message": self.Message,
+            "LowConfidence": self.LowConfidence,
+            "OffAir": self.OffAir
+        }
+
 
 # Packet Type 3
 # This message is sent  when all prior "Decode"  messages in the
@@ -376,11 +390,31 @@ class WSJTX_Logged(WSJTX_Packet):
         self.TxPower = self.readutf8()
         self.Comments = self.readutf8()
         self.Name = self.readutf8()
-        DTTuple = self.getDateTime()
         self.DateOn = DTTuple[0]
         self.TimeOn = DTTuple[1]
         self.TimeOnSpec = DTTuple[2]
         self.TimeOnOffset = DTTuple[3]
+
+    def dict(self):
+        return {
+            "DateOff": self.DateOff,
+            "TimeOff": self.TimeOff,
+            "TimeOffSpec": self.TimeOffSpec,
+            "TimeOffOffset": self.TimeOffOffset,
+            "DXcall": self.DXcall,
+            "DXgrid": self.DXgrid,
+            "DialFrequency": self.DialFrequency,
+            "Mode": self.Mode,
+            "ReportSent": self.ReportSent,
+            "ReportReceived": self.ReportReceived,
+            "TxPower": self.TxPower,
+            "Comments": self.Comments,
+            "Name": self.Name,
+            "DateOn": self.DateOn,
+            "TimeOn": self.TimeOn,
+            "TimeOnSpec": self.TimeOnSpec,
+            "TimeOnOffset": self.TimeOnOffset
+        }
 
 
 # Packet Type 6 Close
