@@ -2,6 +2,9 @@
 
 This is software was created by me (Alexandr [EW1MY](https://www.qrz.com/db/EW1MY)) in order to receive data from [WSJT-X](https://en.wikipedia.org/wiki/WSJT_(amateur_radio_software)) written in Python.
 The main idea is to receive data from one or more WSJT-X instances and then place it to one source.
+The problem that prevented me from living was that each WSJT-X instances had its own log file, but I needed a centralized log, and now it has become possible. 
+Also I plan to add integration to HRDLogbook and maybe something else.
+If you have any ideas for additional functionality please fell free to cantact with me. Maybe I will manage this.
 Here I use SQLite, but you can use any database you want. 
 
 # How it works
