@@ -7,7 +7,7 @@ Here I use SQLite, but you can use any database you want.
 # How it works
 
 In WSJT-X Settings -> Reporting you should setup UDP Server. 
-[EW1MY](https://github.com/alex37529/mywsjt/blob/develop/doc/pic-01.jpg)
+[EW1MY](https://github.com/alex37529/mywsjt/blob/develop/doc/pic-01.jpg?raw=true)
 Specify your UDP Server and port number.
 Then in code setup
 ```
