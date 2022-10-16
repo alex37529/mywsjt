@@ -1,13 +1,15 @@
 # Intro
 
-This is software was created by me in order to receive data from [WSJT-X](https://en.wikipedia.org/wiki/WSJT_(amateur_radio_software)) written in Python.
+This is software was created by me (Alexandr [EW1MY](https://www.qrz.com/db/EW1MY)) in order to receive data from [WSJT-X](https://en.wikipedia.org/wiki/WSJT_(amateur_radio_software)) written in Python.
 The main idea is to receive data from one or more WSJT-X instances and then place it to one source.
 Here I use SQLite, but you can use any database you want. 
 
 # How it works
 
 In WSJT-X Settings -> Reporting you should setup UDP Server. 
+
 ![EW1MY](https://github.com/alex37529/mywsjt/blob/develop/doc/pic-01.jpg?raw=true)
+
 Specify your UDP Server and port number.
 Then in code setup
 ```
