@@ -25,28 +25,6 @@ class WSJTX_Logged(Base):
     TimeOnSpec = Column(Integer, default=0)
     TimeOnOffset = Column(Integer, default=0)
 
-    def dict(self):
-        return {
-            "id": self.id,
-            "DateOff": self.DateOff,
-            "TimeOff": self.TimeOff,
-            "TimeOffSpec": self.TimeOffSpec,
-            "TimeOffOffset": self.TimeOffOffset,
-            "DXcall": self.DXcall,
-            "DXgrid": self.DXgrid,
-            "DialFrequency": self.DialFrequency,
-            "Mode": self.Mode,
-            "ReportSent": self.ReportSent,
-            "ReportReceived": self.ReportReceived,
-            "TxPower": self.TxPower,
-            "Comments": self.Comments,
-            "Name": self.Name,
-            "DateOn": self.DateOn,
-            "TimeOn": self.TimeOn,
-            "TimeOnSpec": self.TimeOnSpec,
-            "TimeOnOffset": self.TimeOnOffset
-        }
-
 
 class WSJTX_Status(Base):
     __tablename__ = 'WSJTX_Status'
@@ -68,26 +46,6 @@ class WSJTX_Status(Base):
     Submode = Column(String, default="")
     Fastmode = Column(Boolean, default=False)
 
-    def dict(self):
-        return {
-            "id": self.id,
-            "Frequency": self.Frequency,
-            "Mode": self.Mode,
-            "DXCall": self.DXCall,
-            "Report": self.Report,
-            "TxMode": self.TxMode,
-            "TxEnabled": self.TxEnabled,
-            "Transmitting": self.Transmitting,
-            "Decoding": self.Decoding,
-            "RxDF": self.RxDF,
-            "TxDF": self.TxDF,
-            "DECall": self.DECall,
-            "DEgrid": self.DEgrid,
-            "TxWatchdog": self.TxWatchdog,
-            "Submode": self.Submode,
-            "Fastmode": self.Fastmode
-        }
-
 
 class WSJTX_Decode(Base):
     __tablename__ = 'WSJTX_Decode'
@@ -101,17 +59,3 @@ class WSJTX_Decode(Base):
     Message = Column(String, default="")
     LowConfidence = Column(Boolean, default=False)
     OffAir = Column(Boolean, default=False)
-
-    def dict(self):
-        return {
-            "id": self.id,
-            "New": self.New,
-            "Time": self.Time,
-            "snr": self.snr,
-            "DeltaTime": self.DeltaTime,
-            "DeltaFrequency": self.DeltaFrequency,
-            "Mode": self.Mode,
-            "Message": self.Message,
-            "LowConfidence": self.LowConfidence,
-            "OffAir": self.OffAir
-        }

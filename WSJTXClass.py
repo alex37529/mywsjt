@@ -194,6 +194,24 @@ class WSJTX_Status(WSJTX_Packet):
         self.Submode = self.readutf8()
         self.Fastmode = self.getBool()
 
+    def dict(self):
+        return {
+            "Frequency": self.Frequency,
+            "Mode": self.Mode,
+            "DXCall": self.DXCall,
+            "Report": self.Report,
+            "TxMode": self.TxMode,
+            "TxEnabled": self.TxEnabled,
+            "Transmitting": self.Transmitting,
+            "Decoding": self.Decoding,
+            "RxDF": self.RxDF,
+            "TxDF": self.TxDF,
+            "DECall": self.DECall,
+            "DEgrid": self.DEgrid,
+            "TxWatchdog": self.TxWatchdog,
+            "Submode": self.Submode,
+            "Fastmode": self.Fastmode
+        }
 
 '''
  New                    bool
