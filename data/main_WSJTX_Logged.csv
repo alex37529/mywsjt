@@ -1,0 +1,3 @@
+id,DateOff,TimeOff,TimeOffSpec,TimeOffOffset,DXcall,DXgrid,DialFrequency,Mode,ReportSent,ReportReceived,TxPower,Comments,Name,DateOn,TimeOn,TimeOnSpec,TimeOnOffset
+1,2459869,46215082,1,0,ON4UR,JO11,28074813,FT8,-03,-09,"",FT8  Sent: -03  Rcvd: -09,"",2459869,46215082,1,0
+2,2459869,46440172,1,0,EB3JT,JN01,28075083,FT8,+13,-11,"",FT8  Sent: +13  Rcvd: -11,"",2459869,46440172,1,0
