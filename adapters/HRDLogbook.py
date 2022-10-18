@@ -1,3 +1,5 @@
+from WSJTXClass import WSJTX_Logged
+from HRDLogbookClass import HRDLogbook
 # INSERT INTO hrd_logbook.TABLE_HRD_CONTACTS_V01 (COL_PRIMARY_KEY, COL_ADDRESS, COL_AGE, COL_A_INDEX, COL_ANT_AZ,
 #                                                 COL_ANT_EL, COL_ANT_PATH, COL_ARRL_SECT, COL_BAND, COL_BAND_RX,
 #                                                 COL_BIOGRAPHY, COL_CALL, COL_CHECK, COL_CLASS, COL_CNTY, COL_COMMENT,
@@ -36,6 +38,15 @@
 
 COL_BAND = ['10m', '15m', '30m']
 #
+def col_band(frequency):
+    return None
+
+def col_cont(dxcall):
+    return None
+
+def col_country(dxcall):
+    return None
+
 def mapping(obj: WSJTX_Logged) -> HRDLogbook:
     hdr = {
         'COL_ADDRESS': "",
@@ -45,29 +56,29 @@ def mapping(obj: WSJTX_Logged) -> HRDLogbook:
         'COL_ANT_EL': 0,
         'COL_ANT_PATH': "",
         'COL_ARRL_SECT': "",
-        'COL_BAND': None,
-        'COL_BAND_RX': None,
-        'COL_BIOGRAPHY': None,
-        'COL_CALL': None,
-        'COL_CHECK': None,
-        'COL_CLASS': None,
-        'COL_CNTY': None,
-        'COL_COMMENT': None,
-        'COL_CONT': None,
-        'COL_CONTACTED_OP': None,
-        'COL_CONTEST_ID': Column(String(32))
-        'COL_COUNTRY': Column(String(64))
-        'COL_CQZ': Column(INTEGER(11))
-        'COL_DISTANCE': Column(Float(asdecimal=True))
-        'COL_DXCC': Column(String(6), index=True)
-        'COL_EMAIL': Column(String(32))
-        'COL_EQ_CALL': Column(String(32))
-        'COL_EQSL_QSLRDATE': Column(DateTime)
-        'COL_EQSL_QSLSDATE': Column(DateTime)
-        'COL_EQSL_QSL_RCVD': Column(String(2))
-        'COL_EQSL_QSL_SENT': Column(String(2))
-        'COL_EQSL_STATUS': Column(String(255))
-        'COL_FORCE_INIT': Column(INTEGER(11))
+        'COL_BAND': col_band(obj.DialFrequency),
+        'COL_BAND_RX': col_band(obj.DialFrequency),
+        'COL_BIOGRAPHY': "",
+        'COL_CALL': obj.DXcall,
+        'COL_CHECK': "",
+        'COL_CLASS': "",
+        'COL_CNTY': "",
+        'COL_COMMENT': "",
+        'COL_CONT': col_cont(obj.DXcall),
+        'COL_CONTACTED_OP': "",
+        'COL_CONTEST_ID': "",
+        'COL_COUNTRY': col_country(obj.DXcall),
+        'COL_CQZ': col_cqz(obj.DXcall),
+        'COL_DISTANCE': col_distance(obj.DXcall),
+        'COL_DXCC': col_dxcc((obj.DXcall),
+        'COL_EMAIL': col_email((obj.DXcall),
+        'COL_EQ_CALL': "",
+        'COL_EQSL_QSLRDATE': "",
+        'COL_EQSL_QSLSDATE': "",
+        'COL_EQSL_QSL_RCVD': "N",
+        'COL_EQSL_QSL_SENT': "N",
+        'COL_EQSL_STATUS': "",
+        'COL_FORCE_INIT': 0,
         'COL_FREQ': Column(INTEGER(11))
         'COL_FREQ_RX': Column(INTEGER(11))
         'COL_GRIDSQUARE': Column(String(12))
@@ -150,13 +161,13 @@ def mapping(obj: WSJTX_Logged) -> HRDLogbook:
         'COL_USER_DEFINED_4': Column(String(64))
         'COL_USER_DEFINED_5': Column(String(64))
         'COL_USER_DEFINED_6': Column(String(64))
-        'COL_USER_DEFINED_7': Column(String(64))
-        'COL_USER_DEFINED_8': Column(String(64))
-        'COL_USER_DEFINED_9': Column(DateTime)
-        'COL_CREDIT_GRANTED': Column(String(64))
-        'COL_CREDIT_SUBMITTED': Column(String(64))
-        'COL_ISMULTIPLIER': Column(String(64))
-        'COL_ROVERLOCATION': Column(String(64))
-        'COL_HRDCOUNTRYNO': Column(String(64))
-        'COL_SUBMODE': Column(String(10))
+        'COL_USER_DEFINED_7': "",
+        'COL_USER_DEFINED_8': "",
+        'COL_USER_DEFINED_9': "",
+        'COL_CREDIT_GRANTED': "",
+        'COL_CREDIT_SUBMITTED': "",
+        'COL_ISMULTIPLIER': "",
+        'COL_ROVERLOCATION': "",
+        'COL_HRDCOUNTRYNO': col_hrdcountryno(obj.DXcall),
+        'COL_SUBMODE': ""
     }
